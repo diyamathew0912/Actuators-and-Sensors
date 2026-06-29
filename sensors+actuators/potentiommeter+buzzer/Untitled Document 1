@@ -1,0 +1,17 @@
+int sensor = A0;
+int buzzer = 8;
+
+void setup() {
+}
+
+void loop() {
+  int value = analogRead(sensor);
+
+  if (value < 400) {
+    tone(buzzer, 1000);   // generate sound
+  } else {
+    noTone(buzzer);       // stop sound
+  }
+
+  delay(100);
+}

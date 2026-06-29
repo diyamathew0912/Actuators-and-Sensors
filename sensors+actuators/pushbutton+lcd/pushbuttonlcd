@@ -1,0 +1,37 @@
+// LCD pins: RS, E, DB4, DB5, DB6, DB7
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+int buttonPin = 7;
+
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);
+
+  lcd.begin(16, 2);
+
+  lcd.setCursor(0, 0);
+  lcd.print("System Ready");
+  delay(1000);
+  lcd.clear();
+}
+
+void loop() {
+
+  if (digitalRead(buttonPin) == LOW) {
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("BUTTON");
+    lcd.setCursor(0, 1);
+    lcd.print("PRESSED");
+
+  } else {
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("PRESS");
+    lcd.setCursor(0, 1);
+    lcd.print("BUTTON");
+  }
+
+  delay(200);
+}
